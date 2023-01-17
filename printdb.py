@@ -23,7 +23,9 @@ ORDER BY activities.date
 
 def main():
     print("Activities")
-    print(*repo.activities.find_all(), sep='\n')
+    activities = repo.activities.find_all()
+    if activities:
+        print(*activities, sep='\n')
     print("Branches")
     print(*repo.branches.find_all(), sep='\n')
     print("Employees")
@@ -39,7 +41,7 @@ def main():
 
     print("\nActivities report")
     for line in repo.execute_command(ACTIVITIES_REPORT_QUERY):
-        print(tuple([str(item) if not isinstance(item, bytes) else item.decode('utf-8') for item in line]))
+        print(tuple([item if not isinstance(item, bytes) else item.decode('utf-8') for item in line]))
 
 
 if __name__ == '__main__':

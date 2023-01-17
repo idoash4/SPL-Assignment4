@@ -23,7 +23,7 @@ def insert_sale_activity(splittedline : list[str]):
     date = splittedline[3]
     # Update product quantity
     product = repo.products.find(id=product_id)[0]
-    if product.quantity < quantity:
+    if product.quantity < -quantity:
         # Not enough quantity
         return
     product.quantity += quantity
