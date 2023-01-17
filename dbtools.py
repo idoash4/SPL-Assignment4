@@ -37,7 +37,7 @@ class Dao(object):
         params = list(ins_dict.values())
         qmarks = ','.join(['?'] * len(ins_dict))
 
-        stmt = 'INSERT INTO {} ({}) VALUES ({})' \
+        stmt = 'INSERT OR REPLACE INTO {} ({}) VALUES ({})' \
             .format(self._table_name, column_names, qmarks)
 
         self._conn.execute(stmt, params)
