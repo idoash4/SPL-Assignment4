@@ -4,19 +4,19 @@ import sys
 import os
 
 
-def add_branche(splittedline : list[str]):
+def add_branche(splittedline : list):
     repo.branches.insert(Branche(splittedline[0], splittedline[1], splittedline[2]))
 
 
-def add_supplier(splittedline : list[str]):
+def add_supplier(splittedline : list):
     repo.suppliers.insert(Supplier(splittedline[0], splittedline[1], splittedline[2]))
 
 
-def add_product(splittedline : list[str]):
+def add_product(splittedline : list):
     repo.products.insert(Product(splittedline[0], splittedline[1], splittedline[2], splittedline[3]))
 
 
-def add_employee(splittedline : list[str]):
+def add_employee(splittedline : list):
     repo.employees.insert(Employee(splittedline[0], splittedline[1], splittedline[2], splittedline[3]))
 
 
@@ -26,7 +26,7 @@ adders = {  "B": add_branche,
             "E": add_employee}
 
 
-def main(args : list[str]):
+def main(args : list):
     inputfilename = args[1]
     # delete the database file if it exists
     repo._close()

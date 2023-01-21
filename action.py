@@ -3,7 +3,7 @@ from persistence import *
 import sys
 
 
-def insert_supply_arrival(splittedline : list[str]):
+def insert_supply_arrival(splittedline : list):
     product_id = int(splittedline[0])
     quantity = int(splittedline[1])
     supplier_id = int(splittedline[2])
@@ -16,7 +16,7 @@ def insert_supply_arrival(splittedline : list[str]):
     repo.activities.insert(Activitie(product_id, quantity, supplier_id, date))
 
 
-def insert_sale_activity(splittedline : list[str]):
+def insert_sale_activity(splittedline : list):
     product_id = int(splittedline[0])
     quantity = int(splittedline[1])
     employee_id = int(splittedline[2])
@@ -32,7 +32,7 @@ def insert_sale_activity(splittedline : list[str]):
     repo.activities.insert(Activitie(product_id, quantity, employee_id, date))
 
 
-def main(args : list[str]):
+def main(args : list):
     inputfilename : str = args[1]
     with open(inputfilename) as inputfile:
         for line in inputfile:
